@@ -1,0 +1,87 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="copy">et_payment_package</custom-field>
+        <custom-field action="copy">_et_featured</custom-field>
+        <custom-field action="copy">et_featured</custom-field>
+        <custom-field action="copy">et_expired_date</custom-field>
+        <custom-field action="copy">post_views</custom-field>
+        <custom-field action="copy">et_paid</custom-field>
+        <custom-field action="copy">et_job_order</custom-field>
+        <custom-field action="copy">et_carousels</custom-field>
+        <custom-field action="copy">_regular_price</custom-field>
+        <custom-field action="copy">et_ad_order</custom-field>
+        
+        <custom-field action="translate">et_location</custom-field>
+        <custom-field action="translate">et_full_location</custom-field>
+        <custom-field action="copy">et_location_lat</custom-field>
+        <custom-field action="copy">et_location_lng</custom-field>
+        
+    </custom-fields>
+    <custom-types>
+        <custom-type translate="1">ad</custom-type>
+    </custom-types>    
+    <taxonomies>
+        <taxonomy translate="1">ad_category</taxonomy>
+        <taxonomy translate="1">ad_location</taxonomy>
+    </taxonomies>    
+    <admin-texts>
+        <key name="et_ce_opts">
+            <key name="et_site_title" />
+            <key name="et_site_desc" />
+            <key name="et_copyright" />
+        </key>
+
+        <key name="ce_mailtemplate">
+            <key name="et_register_mail" />
+            <key name="et_forgot_pass_mail" />
+            <key name="et_reset_pass_mail" />
+        
+            <key name="et_approve_mail" />
+            <key name="et_reject_mail" />
+            <key name="et_archive_mail" />
+            <key name="et_cash_notification_mail" />
+            <key name="et_message_to_seller_mail" />
+            <key name="et_send_receipt_mail" />
+        </key>
+        <key name="blogname" />
+        <key name="blogdescription" />
+    </admin-texts>    
+
+    <language-switcher-settings>
+        <key name="icl_lang_sel_config">
+            <key name="font-current-normal">#444444</key>
+            <key name="font-current-hover">#000000</key>
+            <key name="background-current-normal">#ffffff</key>
+            <key name="background-current-hover">#eeeeee</key>
+            <key name="font-other-normal">#444444</key>
+            <key name="font-other-hover">#000000</key>
+            <key name="background-other-normal">#ffffff</key>
+            <key name="background-other-hover">#eeeeee</key>
+            <key name="border">#cdcdcd</key>
+        </key>
+        <key name="icl_lang_sel_footer_config">
+            <key name="font-current-normal">#444444</key>
+            <key name="font-current-hover">#000000</key>
+            <key name="background-current-normal">#ffffff</key>
+            <key name="background-current-hover">#eeeeee</key>
+            <key name="font-other-normal">#444444</key>
+            <key name="font-other-hover">#000000</key>
+            <key name="background-other-normal">#ffffff</key>
+            <key name="background-other-hover">#eeeeee</key>
+            <key name="border">#cdcdcd</key>
+        </key>    
+        <key name="icl_language_switcher_sidebar">0</key>  
+        <key name="icl_widget_title_show">0</key>
+        <key name="icl_lang_sel_type">dropdown</key>
+        <key name="icl_lso_link_empty">0</key>
+        <key name="icl_lso_flags">0</key>
+        <key name="icl_lso_native_lang">1</key>
+        <key name="icl_lso_display_lang">1</key>
+        <key name="icl_lang_sel_footer">0</key>
+        <key name="icl_post_availability">0</key>
+        <key name="icl_post_availability_position">below</key>
+        <key name="icl_post_availability_text">This post is also available in: %s</key>    
+    </language-switcher-settings>    
+</wpml-config>
+
+

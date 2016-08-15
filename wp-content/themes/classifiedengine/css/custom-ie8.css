@@ -1,0 +1,102 @@
+.ie8 .search-home {
+    /width: 540px !important;
+}
+.ie8 .search-home input[type="text"] {
+    /width: 55% !important;
+}
+.ie8 .body-grid-view .button-event{
+ /width: 450px;
+}
+
+.ie8 .header-top .main-top-menu .nav{
+	width: 50%;
+}
+.ie8 .header-filter #search-form .col-md-3{
+	width: 22% !important;
+	float: left;
+}
+.ie8 .header-filter #search-form .col-md-9{
+	width: 78% !important;
+}
+.ie8 .header-filter .button-search{
+	margin-right: 0px !important;
+}
+.ie8 .col-md-9.area-f-right{
+	width: 76% !important;
+}
+.ie8 .col-md-3.area-f-left{
+	width: 23% !important;
+}
+.ie8  .accout-profile .col-md-8{
+	width: 65%;
+	float: left;
+}
+.ie8 .col-md-3.left_bar{
+	width: 22%;
+	float: left;
+}
+.ie8 .col-md-9.content-seller{
+	width: 74%;
+	float: right;
+}
+.ie8 .title-page .col-md-3{
+	width: 22%;
+	float: left;
+}
+.ie8 #frm_list_seller .col-md-6{
+	width: 37.4%;
+}
+.ie8 input[type="text"]{
+	padding-top: 10px !important;
+}
+
+.ie8 .form-post .controls{
+	float: left !important;
+	width: 65% !important;
+}
+.ie8 .form-post  label{
+	float: left;
+}
+.ie8 .search-seller-local{
+	margin-right: -12px;
+}
+
+.ie8 .form-post .input-file .button {
+	margin-left: 0px;
+}
+
+.ie8 .category-all	 {
+	margin-left: 0;
+}
+
+.ie8 .post-step3 .search-category .icon {
+	left : 5px;
+}
+
+.ie8 .well {
+	width: 25%;
+	float: left;
+	padding-right: 15px;
+}
+.ie8 .contenttext {
+	width: 73%;
+	float : left;
+	padding-left: 15px;
+}
+
+.ie8 .header-top .col-md-3  {
+	width: 25%;
+	float : left;
+}
+
+.ie8 .header-top .col-md-9 {
+	width: 70%;
+	float : left;
+}
+
+.ie8 .body-list-view .button-event, .ie8 .body-grid-view .button-event , .ie9 .body-list-view .button-event, .ie9 .body-grid-view .button-event {
+	filter : none;
+}
+.ie8 .body-list-view .button-event {
+	width : 200px;
+}

@@ -1,0 +1,714 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  	background: @color;
+  	background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, @start),
+                               color-stop(1, @stop));
+  	background: -ms-linear-gradient(bottom,
+                                  @start,
+                                  @stop);
+  	background: -moz-linear-gradient(center bottom,
+                                   @start 0%,
+                                   @stop 100%);
+  	background: -o-linear-gradient(@stop,
+                                 @start);
+  	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
+
+.bw-gradient(@color: #F5F5F5, @start: 0, @stop: 255) {
+  	background: @color;
+  	background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, rgb(@start,@start,@start)),
+                               color-stop(1, rgb(@stop,@stop,@stop)));
+  	background: -ms-linear-gradient(bottom,
+                                  rgb(@start,@start,@start) 0%,
+                                  rgb(@stop,@stop,@stop) 100%);
+  	background: -moz-linear-gradient(center bottom,
+                                   rgb(@start,@start,@start) 0%,
+                                   rgb(@stop,@stop,@stop) 100%);
+  	background: -o-linear-gradient(rgb(@stop,@stop,@stop),
+                                 rgb(@start,@start,@start));
+  	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",rgb(@stop,@stop,@stop),rgb(@start,@start,@start)));
+}
+
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  	border-top: solid 1px @top-color;
+  	border-left: solid 1px @left-color;
+  	border-right: solid 1px @right-color;
+ 	  border-bottom: solid 1px @bottom-color;
+}
+.drop-shadow(@x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  	-webkit-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  	-moz-box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  	box-shadow: @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+}
+.rounded(@radius: 2px) {
+  	-webkit-border-radius: @radius;
+  	-moz-border-radius: @radius;
+  	border-radius: @radius;
+}
+
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  	-webkit-border-top-right-radius: @topright;
+  	-webkit-border-bottom-right-radius: @bottomright;
+  	-webkit-border-bottom-left-radius: @bottomleft;
+  	-webkit-border-top-left-radius: @topleft;
+  	-moz-border-radius-topright: @topright;
+  	-moz-border-radius-bottomright: @bottomright;
+  	-moz-border-radius-bottomleft: @bottomleft;
+  	-moz-border-radius-topleft: @topleft;
+  	border-top-right-radius: @topright;
+  	border-bottom-right-radius: @bottomright;
+  	border-bottom-left-radius: @bottomleft;
+  	border-top-left-radius: @topleft;
+  	.background-clip(padding-box);
+}
+.opacity(@opacity: 0.5) {
+  	-moz-opacity: @opacity;
+  	-khtml-opacity: @opacity;
+  	-webkit-opacity: @opacity;
+  	opacity: @opacity;
+  	@opperc: @opacity * 100;
+  	-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  	filter: ~"alpha(opacity=@{opperc})";
+}
+.transition-duration(@duration: 0.2s) {
+    -moz-transition-duration: @duration;
+    -webkit-transition-duration: @duration;
+    -o-transition-duration: @duration;
+    transition-duration: @duration;
+}
+.transform(...) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -o-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+.rotation(@deg:5deg){
+    .transform(rotate(@deg));
+}
+.scale(@ratio:1.5){
+  .transform(scale(@ratio));
+}
+.transition(@duration:0.2s, @ease:ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+  	-webkit-box-shadow: @arguments;
+  	-moz-box-shadow: @arguments;
+  	box-shadow: @arguments;
+}
+.box-shadow2( @arguments, @arguments2 ) {
+  	-webkit-box-shadow: @arguments, @arguments2;
+  	-moz-box-shadow: @arguments, @arguments2;
+  	box-shadow: @arguments, @arguments2;
+}
+.box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+.translate(@x:0, @y:0) {
+  .transform(translate(@x, @y));
+}
+.background-clip(@argument: padding-box) {
+  -moz-background-clip: @argument;
+  -webkit-background-clip: @argument;
+  background-clip: @argument;
+}
+
+@hyperlink : @action_1;
+
+// font color with back ground bright 
+.fontcolor(@background, @colorDark : #ffffff, @colorWhite : #3b3b3b) when (lightness(@background) >= 80%){
+	color: @colorDark;
+	//color: @background - 104;
+}
+
+// font color with dark background
+.fontcolor(@background, @colorDark : #ffffff, @colorWhite : #3b3b3b) when (lightness(@background) < 80%){ 
+	color: @colorWhite; 
+}
+
+.fontcolor_hover (@background, @percent) when (lightness(@background) >= 80%){
+	color : mix(darken(@background, @percent) , #2F3230, 50% ); 
+	//color: @background - 104;
+
+}
+
+.fontcolor_hover (@background, @percent) when (lightness(@background) < 80%){
+	color : mix( lighten(@background, @percent) ,#EDF3EB, 50% ); 
+	//color: @background - 104;
+}
+
+.bordercolor( @background, @percent ) when (lightness(@background) >= 80%){
+	border-color:darken( @background, @percent );
+	//color: @background - 104;
+}
+
+// font color with dark background
+.bordercolor(@background, @percent) when (lightness(@background) < 80%){ 
+	border-color: lighten(@background, @percent); 
+}
+
+.background_hover(@background, @percent ) when (lightness(@background) >= 80%){
+	background: darken(@background, @percent);
+	//color: @background - 104;
+}
+.background_hover(@background, @percent ) when (lightness(@background) < 80%){ 
+	color: lighten(@background, @percent); 
+}
+
+.background_text(@background, @percent ) when (lightness(@background) >= 80%){
+  color: darken(@background, @percent);
+  //color: @background - 104;
+}
+.background_text(@background, @percent ) when (lightness(@background) < 80%){ 
+  color: lighten(@background, @percent); 
+}
+
+
+// header 
+
+.header-top ,.sf-menu ul {
+	.gradient ( @header, darken(@header, 5%), @header ) ;
+}
+.header-top {
+	.box-shadow(1px 1px 1px darken(@header,15%));
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu li.current-menu-item, .sf-menu li.current-menu-parent {
+	.background_hover(@header, 4%);
+}
+
+.sf-menu ul li, .quite-icon {
+	.bordercolor( @header, 10% );
+}
+
+.sf-menu a, .login a {
+	.fontcolor(@header, #999999, #eeeeee);
+}
+
+.bg-pattern(@pattern){
+	background-color: @background;
+	background-image: url(~"@{pattern}");
+	background-repeat: repeat;
+	font-family: @font-text;
+	font-size: @font-text-size;
+	.fontcolor_hover(@background, 25%);
+}
+
+body {
+	.bg-pattern(@pattern);
+}
+
+// background 
+.pagination > li > a, .pagination > li > span, .header-filter, .search-home .category-search-dropdown .scrollbar2,.dropdown-menu {
+	background : @background;
+	background-image: url(~"@{pattern}");
+	background-repeat: repeat;
+}
+.bg-breadcrumb  {
+	.background_hover(@background, 5%);
+	.box-shadow(0 1px 1px darken(@background, 20%));
+}
+.breadcrumb a {
+	.fontcolor_hover(@background, 40%) 
+}
+
+.breadcrumb > .active {
+    .fontcolor_hover(@background, 10%) 
+}
+
+.header-filter button.btn, .search input[type="text"] {
+	.bordercolor(@background,7%);
+}
+.scrollbar2 .thumb,.show-box-category button.btn, .pagination-page li a, .pagination-page li span, .search-home .category-search-dropdown .scrollbar2 {
+	.bordercolor(@background,7%);		
+}
+.scrollbar2 .thumb {
+	.background_hover(@background, 20%);
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus ,  .widget-area {
+	.background_hover(@background, 10%);
+}
+.no-result {
+	.background_hover(@background, 5%);
+	.fontcolor_hover(@background, 40%);
+}
+.dropdown-menu .divider {
+	.background_hover(@background, 5%);
+}
+
+.title-page, 
+.single-ad-title, 
+.listing-related button.selectdrop, 
+.listing-related,
+.contronl-listing button:first-child,
+.contronl-listing button.next-related,
+.dropdown-menu , .featured-home, 
+.tabs-acount, form .divider, 
+.menu-left-page li.active:last-child, 
+/* nut add more text widget */
+.style-button {
+	.bordercolor(@background,10%);
+}
+.title-page {
+	.box-shadow(1px 1px 1px darken(@background,5%) inset );
+}
+.menu-left li .border-bottom, 
+.share-social li,
+.menu-left .menu-child,
+.event-listing li,
+.border-top,
+.head-step, 
+.post-to-classifieds, 
+.content-step ul li, 
+.post-ad-step .form-group, 
+.number-step ,
+.post-to-classifieds .form-group input ,
+.post-to-classifieds  .category-all, 
+.post-to-classifieds #carousel_browse_button, 
+.post-to-classifieds table#post_content_tbl,
+.post-to-classifieds .chosen-container-single .chosen-single, 
+.accout-profile .form-group input ,
+.body-list-view .icon-view li.list span,
+.body-grid-view .icon-view li.grid span,
+.icon-view li.grid span:hover,
+.icon-view li.list span:hover,
+.body-list-view .button-event li {
+	.bordercolor(@background,10%);
+}
+
+.text-profile, 
+.text-vote ,
+.list-seller-img,
+.menu-left-page li.active, 
+.menu-left-page li {
+	.bordercolor(@background,10%);
+}
+.intro-profle {
+	 background : @background;
+	.bordercolor(@background,10%);
+}
+
+.body-list-view .item-product , .content-seller .col-md-12.item-product, .related-classified, .body-grid-view .item-product , .bg-slide-listing{
+	.bordercolor(@background,10%);
+	.box-shadow( 0 0px 2px darken(@background,5%) );
+}
+.seller-profile {
+	.background_hover(@background, 5%);
+	.bordercolor(@background,10%);
+	.box-shadow( 1px 1px 1px darken(@background,5%) inset );
+}
+
+#bx-pager a img {
+	border-color : @background;	
+}
+
+.bg-slide-thumbnails .next-slide, .bg-slide-thumbnails .prev-slide {
+	.background_hover(@background, 5%);
+}
+.post-to-classifieds .form-post .controls input[type="text"], 
+.post-to-classifieds .form-post .controls input[type="password"], 
+.post-to-classifieds .category-all, 
+.post-to-classifieds #carousel_browse_button, .accout-profile .form-group input {
+	.background_hover(@background,3%);
+}
+
+/*
+.widget_text .arrow-right, .user_payment_status .arrow-right {
+	border-bottom: 25px solid darken(@background,15%);
+	border-top: 25px solid @background;
+	border-right: 25px solid @background;
+}
+*/
+
+// action 2
+
+#bx-pager a:hover img, #bx-pager a.active img {
+	border-color : @action_2;
+}
+
+.main-content a, 
+.main-content a:visited, 
+.fontsize17 , 
+.search-category li.check-all, 
+.search-category .check-all .icon, 
+.forgot-password-link, 
+.pagination > li > a,
+.button-event li a,
+.post-wrapper .detail-post span i
+{
+	color : @action_2;
+}
+
+.section-link li a, .section-link li a:visited, .text-profile .colorgreen {
+	color : @action_2;
+}
+
+
+.search-category li:hover {
+    color : @action_2;
+}
+
+.html_carousel .paginate a,
+.btn-primary, .intro-profle .btn.sembold {
+	background : @action_2;
+	.fontcolor_hover(@action_2, 40%);
+	.bordercolor(@action_2,10%);
+}
+
+.ui-autocomplete li.selected {
+    color : @action_2;
+}
+.ui-autocomplete li.selected .icon-circle {
+    background-color : @action_2;
+}
+
+
+.btn-primary:hover, 
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active, 
+
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary,
+
+
+.search-home .dropdown-menu > li > a:hover, 
+.search-home .search-category li:hover,
+.dropdown-menu > li > a:hover,   .sub-dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+	 background : darken(@action_2, 5%);	
+	.fontcolor_hover(@action_2, 35%);
+	.bordercolor(darken(@action_2, 5%),10%);
+}
+
+.button, .added_to_cart  {
+   background : darken(@action_2, 5%) !important; 
+  .fontcolor(@action_1, #999, #eee) !important;
+  .bordercolor(darken(@action_2, 5%),10%) !important;
+}
+
+.post-step1 .selected button {
+	 background : lighten(@action_2, 25%); 
+  .fontcolor_hover(@action_2, 45%);
+  .bordercolor(lighten(@action_2, 15%),10%);
+}
+
+#step-plan .content-step ul li.selected {
+    background : lighten(@action_2, 45%); 
+}
+
+.button-post-ad, {
+  .gradient ( @action_1, darken(@action_1, 5%), @action_1 ) ;
+}
+
+
+// action 1
+
+
+.button-post-ad a, .main-content .button-post-ad a {
+  .fontcolor(@action_1, #999, #eee)
+}
+.button-post-ad a:hover{
+    .fontcolor(@action_1, #9B9A9A, #DBDADA);
+}
+
+
+// text color
+
+.menu-left li.active .border-bottom a, 
+.menu-left li.active a,  
+.menu-child li a, 
+.menu-child li a:visited,
+.menu-left li.active .border-bottom *, 
+.menu-left li.active .border-bottom a {
+	.fontcolor_hover(@background, 65%);
+}
+
+.menu-left li i , .icon-view li span i {
+  .background_text(@background, 25%);
+}
+.arrow-left i, 
+.breadcrumb > li > .divider i , 
+.listing-related .icon-arrow i ,
+.featured-home i ,
+.contronl-listing .arrow-next i,
+.contronl-listing .arrow-left i {
+  .background_text(@background, 25%);
+}
+
+.main-content, 
+span.select, 
+
+/* location dropdown in search form  */
+.dropdown-menu > li > a, .sub-dropdown-menu > li > a,
+
+/* search category li list in search form */
+.search-category li ,
+.show-box-category .show-cat i,
+.dropdown-left button .icon
+{
+	.fontcolor_hover(@background, 65%);
+}
+
+
+/* product title in single ad */
+.name-product h2, 
+
+/* latest post heading */
+.title-product, 
+
+/* menu left */
+.menu-left-page li.active a, 
+/*
+ * nav tab in profile active
+*/
+.nav-tabs > li.active > a, 
+.nav-tabs > li.active > a:hover, 
+.nav-tabs > li.active > a:focus {
+	.fontcolor_hover(@background, 45%);
+}
+
+/* nav tab in profile normal */
+ .nav-tabs > li > a 
+{
+    .fontcolor_hover(@background, 5%);
+}
+
+/* product title in product item */
+.intro-product .title {
+    .fontcolor_hover(@background, 35%);
+}
+
+.title-page .text, 
+.name-step , 
+.form-post .control-label, 
+.post-step4 .fontsize17 , 
+.list-date {
+	.fontcolor_hover(@background, 45%);
+}
+
+.intro-profle .seller-name {
+	.fontcolor_hover(@background, 50%);
+}
+.text-intro, 
+.intro-product .name ,
+.post-step1 .name, 
+.post-step4 .name ,
+.form-post .control-label .sub-title,
+{
+	.fontcolor_hover(@background, 10%);
+}
+
+.text-intro .date-upload, 
+ {
+	.fontcolor_hover(@background, 20%);
+}
+.intro-profle  .colorgray {
+  .fontcolor_hover(@background, 35%);
+}
+.post-step .finished .name-step, 
+.post-step .finished {
+	.fontcolor(@background,  #539F41, #A4FA60);
+}
+
+
+
+/*
+@font-heading: ~`customizer['font-heading']`;
+@font-heading-weight : ~`customizer['font-heading-weight']`;
+@font-heading-style : ~`customizer['font-heading-style']`;
+@font-heading-size : ~`customizer['font-heading-size']`;
+
+@font-text : ~`customizer['font-text']`;
+@font-text-weight : ~`customizer['font-text-weight']`;
+@font-text-style : ~`customizer['font-text-style']`;
+@font-text-size : ~`customizer['font-text-size']`;
+*/
+
+// text size 
+
+.customize_heading_size {
+  font-size : @font-heading-size !important;
+}
+.customize_heading {
+    //font-weight : @font-heading-weight;
+    //font-style  : @font-heading-style;
+    font-family : @font-heading !important;
+}
+
+.customize_text {
+    font-size : @font-text-size !important;
+   // font-weight : @font-text-weight;
+    //font-style  : @font-text-style !important;
+    font-family : @font-text !important;
+}
+
+// footer
+.section-link h1, .about-company h1 {
+	.fontcolor_hover(@footer, 30%);
+}
+.bg-footer, .about-company p {
+	.fontcolor_hover(@footer, 15%);
+}
+
+.bg-footer {
+	background : @footer;
+	.box-shadow(0 1px 2px darken(@footer,15%) inset);
+}
+
+.section-link li a:hover {
+	.fontcolor_hover(@footer,  25%) ;
+}
+
+/* layout */
+
+.right-sidebar .area-f-left, .right-sidebar .left_bar {
+  float : right;
+}
+.right-sidebar .area-f-right {
+  float : left;
+}
+.one-column .area-f-left {
+  display: none;
+}
+.one-column .area-f-right {
+  width: 100%;
+}
+
+
+
+/* infinite scroll color */
+
+@-moz-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:@action_1;
+        -moz-transform: translateY(0);
+    }
+
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -moz-transform: translateY(-21px);
+    }
+
+}
+
+@-webkit-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:@action_1;
+        -webkit-transform: translateY(0);
+    }
+
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -webkit-transform: translateY(-21px);
+    }
+
+}
+
+@-ms-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color : @action_1;
+        -ms-transform: translateY(0);
+    }
+
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -ms-transform: translateY(-21px);
+    }
+
+}
+
+@-o-keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:@action_1;
+        -o-transform: translateY(0);
+    }
+
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        -o-transform: translateY(-21px);
+    }
+
+}
+
+@keyframes bubblingG {
+    0% {
+        width: 10px;
+        height: 10px;
+        background-color:@action_1;
+        transform: translateY(0);
+    }
+
+    100% {
+        width: 24px;
+        height: 24px;
+        background-color:#FFFFFF;
+        transform: translateY(-21px);
+    }
+}
+/* infinite scroll color */
